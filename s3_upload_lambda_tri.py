@@ -1,4 +1,6 @@
-
+# create lam fun , crete new role with s3read only permissio bcz upload only, wirte py code  
+# createe s3 bkt, in properties, event section , select put action, lambda fun
+# now uploas obj, will trigger lambda , chk in cldwatch logs
 
 def lambda_handler(event, context):
   #1 Get the bucket name
