@@ -1,21 +1,19 @@
 # created policy of start and stop instace, created iam role and attach that policy, to lambda function
-  #created lambda function of stop , node js function 
+  #created lambda function of stop , python function 
+***
+import boto3
 
-const AWS = require('aws-sdk');
+def lambda_handler(event, context):
+    ec2 = boto3.client('ec2', region_name='us-east-1')  # Specify your region
 
- exports.handler = (event, context, callback) => {
- const ec2 = new AWS.EC2({ region: event.InstanceRegion });
- 
- ec2.stopInstances({ InstanceIds: [event.InstanceId] }).promise()
- .then(() => callback(null, `Successfully stopped ${event.InstanceId}`))
- .catch(err => callback(err));
- }; 
-# here give parameter injson format while creating test event
-{
-  "InstanceRegion" : "us-east-1" ,
-  "InstanceId" : "i-075367b515bef465d"
-}
-#for start instance change at line 9 , ec2.startInstances()
+    # List of EC2 instance IDs to start
+    instance_ids = ['i-086818d1e82851567']
 
+    # Start the instances
+    ec2.start_instances(InstanceIds=instance_ids)
+
+    return f'Started instances: {instance_ids}'
+
+*****
 #automate process via cldwatch event
 #create rule of type schedule, give cron job exp 
