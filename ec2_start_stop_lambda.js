@@ -17,3 +17,5 @@ def lambda_handler(event, context):
 *****
 #automate process via cldwatch event
 #create rule of type schedule, give cron job exp 
+6.30 am ust + 5.30 = 12 pm ist
+8 am ist = 8 -5.30 = 2.30 am ust 
