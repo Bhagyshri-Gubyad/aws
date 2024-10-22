@@ -29,3 +29,5 @@ sudo systemctl status jenkins
 
 sudo chown $USER /var/run/docker.sock
 sudo reboot # After that again connect your ssh connection.
+
+sudo usermod -aG docker jenkins
